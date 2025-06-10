@@ -50,11 +50,11 @@ const mockCars = [
 export default function RecommendationPage() {
   const [showResults, setShowResults] = useState(false)
   const [formData, setFormData] = useState({
-    budgetMin: "",
-    budgetMax: "",
-    jarakMin: "",
-    penggunaanHarian: "",
-    prioritas: "",
+    price: "",
+    battery: "",
+    power: "",
+    distance: "",
+    max_speed: "",
   })
 
   const formatPrice = (price: number) => {
@@ -138,7 +138,7 @@ export default function RecommendationPage() {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50 py-8">
       <div className="container mx-auto px-4 max-w-2xl">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">Apa yang ingin kamu inginkan?</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mt-20 mb-2">Apa yang ingin kamu inginkan?</h1>
           <p className="text-gray-600">Isi form berikut untuk mendapatkan rekomendasi mobil listrik terbaik</p>
         </div>
 
@@ -153,73 +153,89 @@ export default function RecommendationPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="budgetMin">Budget Minimum (Rp)</Label>
-                  <Input
-                    id="budgetMin"
-                    type="number"
-                    placeholder="500000000"
-                    value={formData.budgetMin}
-                    onChange={(e) => handleInputChange("budgetMin", e.target.value)}
-                    required
-                  />
+                  <Label htmlFor="price">Harga</Label>
+                  <Select
+                    value={formData.price}
+                    onValueChange={(value) => handleInputChange("price", value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Pilih kategori harga" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">Ekonomis</SelectItem>
+                      <SelectItem value="2">Menengah</SelectItem>
+                      <SelectItem value="3">Premium</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div>
-                  <Label htmlFor="budgetMax">Budget Maksimum (Rp)</Label>
-                  <Input
-                    id="budgetMax"
-                    type="number"
-                    placeholder="1000000000"
-                    value={formData.budgetMax}
-                    onChange={(e) => handleInputChange("budgetMax", e.target.value)}
-                    required
-                  />
+                  <Label htmlFor="battery">Kapasitas Baterai</Label>
+                  <Select
+                    value={formData.battery}
+                    onValueChange={(value) => handleInputChange("battery", value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Pilih kategori baterai" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">Standar</SelectItem>
+                      <SelectItem value="2">Jarak Jauh</SelectItem>
+                      <SelectItem value="3">Performa</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
 
-              <div>
-                <Label htmlFor="jarakMin">Jarak Tempuh Minimum (km)</Label>
-                <Input
-                  id="jarakMin"
-                  type="number"
-                  placeholder="300"
-                  value={formData.jarakMin}
-                  onChange={(e) => handleInputChange("jarakMin", e.target.value)}
-                  required
-                />
+              <div className="grid md:grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="power">Tenaga</Label>
+                  <Select
+                    value={formData.power}
+                    onValueChange={(value) => handleInputChange("power", value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Pilih kategori tenaga" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">Perkotaan</SelectItem>
+                      <SelectItem value="2">Responsif</SelectItem>
+                      <SelectItem value="3">Performa Tinggi</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <Label htmlFor="distance">Jarak Tempuh</Label>
+                  <Select
+                    value={formData.distance}
+                    onValueChange={(value) => handleInputChange("distance", value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Pilih kategori jarak" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">Dekat</SelectItem>
+                      <SelectItem value="2">Menengah</SelectItem>
+                      <SelectItem value="3">Jauh</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <Label htmlFor="max_speed">Kecepatan Maksimum</Label>
+                  <Select
+                    value={formData.max_speed}
+                    onValueChange={(value) => handleInputChange("max_speed", value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Pilih kategori kecepatan" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">Standar</SelectItem>
+                      <SelectItem value="2">Cepat</SelectItem>
+                      <SelectItem value="3">Sangat Cepat</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
-
-              <div>
-                <Label htmlFor="penggunaanHarian">Penggunaan Harian</Label>
-                <Select
-                  value={formData.penggunaanHarian}
-                  onValueChange={(value) => handleInputChange("penggunaanHarian", value)}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Pilih penggunaan harian" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="kota">Dalam Kota</SelectItem>
-                    <SelectItem value="highway">Highway/Tol</SelectItem>
-                    <SelectItem value="campuran">Campuran</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div>
-                <Label htmlFor="prioritas">Prioritas Utama</Label>
-                <Select value={formData.prioritas} onValueChange={(value) => handleInputChange("prioritas", value)}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Pilih prioritas utama" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="harga">Harga Terjangkau</SelectItem>
-                    <SelectItem value="jarak">Jarak Tempuh Jauh</SelectItem>
-                    <SelectItem value="tenaga">Tenaga Besar</SelectItem>
-                    <SelectItem value="efisiensi">Efisiensi Energi</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
               <Button
                 type="submit"
                 className="w-full bg-gradient-to-r from-orange-400 to-red-400 hover:from-orange-500 hover:to-red-500"

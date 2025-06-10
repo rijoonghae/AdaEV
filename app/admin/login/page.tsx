@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Shield, Eye, EyeOff } from "lucide-react"
+import Link from "next/link"
 
 export default function AdminLoginPage() {
   const [showPassword, setShowPassword] = useState(false)
@@ -21,7 +22,7 @@ export default function AdminLoginPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Simple authentication - in real app use proper auth
-    if (formData.username === "admin" && formData.password === "admin123") {
+    if (formData.username === "admin" && formData.password === "admin@") {
       localStorage.setItem("adminAuth", "true")
       router.push("/admin/dashboard")
     } else {
@@ -34,9 +35,9 @@ export default function AdminLoginPage() {
       <div className="container mx-auto px-4 max-w-md">
         <Card>
           <CardHeader className="text-center">
-            <div className="w-16 h-16 bg-gradient-to-r from-orange-400 to-red-400 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Shield className="h-8 w-8 text-white" />
-            </div>
+            <Link href="/">
+              <img src="/ADA-EV.png" alt="ADA-EV Logo" className="h-12 w-auto p-1 mx-auto" />
+            </Link>
             <CardTitle className="text-2xl">Admin Login</CardTitle>
             <p className="text-gray-600">Masuk ke dashboard admin</p>
           </CardHeader>
@@ -72,7 +73,6 @@ export default function AdminLoginPage() {
                     className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                     onClick={() => setShowPassword(!showPassword)}
                   >
-                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </Button>
                 </div>
               </div>
@@ -85,10 +85,6 @@ export default function AdminLoginPage() {
               </Button>
             </form>
 
-            <div className="mt-4 text-sm text-gray-600 text-center">
-              <p>Demo credentials:</p>
-              <p>Username: admin | Password: admin123</p>
-            </div>
           </CardContent>
         </Card>
       </div>

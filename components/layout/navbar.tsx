@@ -10,10 +10,7 @@ export function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="bg-white rounded-lg p-2">
-              <Car className="h-6 w-6 text-orange-500" />
-            </div>
-            <span className="text-xl font-bold">Ada-EV</span>
+            <img src="/ADA-EV.png" alt="ADA-EV Logo" className="h-12 w-auto p-1" />
           </Link>
 
           <div className="flex items-center space-x-6">
