@@ -16,7 +16,7 @@ const mockCars = [
     id: "1",
     merek: "Tesla",
     model: "Model 3",
-    harga: 800000000,
+    harga: 800,
     baterai: 75,
     tenaga: 283,
     jarak: 448,
@@ -27,7 +27,7 @@ const mockCars = [
     id: "2",
     merek: "Hyundai",
     model: "IONIQ 5",
-    harga: 750000000,
+    harga: 750,
     baterai: 72.6,
     tenaga: 225,
     jarak: 384,
@@ -38,7 +38,7 @@ const mockCars = [
     id: "4",
     merek: "Nissan",
     model: "Leaf",
-    harga: 600000000,
+    harga: 600,
     baterai: 40,
     tenaga: 150,
     jarak: 270,
@@ -50,19 +50,19 @@ const mockCars = [
 export default function RecommendationPage() {
   const [showResults, setShowResults] = useState(false)
   const [formData, setFormData] = useState({
-    price: "",
+    harga: "",
     battery: "",
     power: "",
     distance: "",
     max_speed: "",
   })
 
-  const formatPrice = (price: number) => {
+  const formatPrice = (harga: number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
       minimumFractionDigits: 0,
-    }).format(price)
+    }).format(harga)
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -153,10 +153,10 @@ export default function RecommendationPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="price">Harga</Label>
+                  <Label htmlFor="harga">Harga</Label>
                   <Select
-                    value={formData.price}
-                    onValueChange={(value) => handleInputChange("price", value)}
+                    value={formData.harga}
+                    onValueChange={(value) => handleInputChange("harga", value)}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Pilih kategori harga" />

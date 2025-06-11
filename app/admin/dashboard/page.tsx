@@ -14,7 +14,7 @@ const mockCars = [
     id: "1",
     merek: "Tesla",
     model: "Model 3",
-    harga: 800000000,
+    harga: 800,
     baterai: 75,
     tenaga: 283,
     jarak: 448,
@@ -24,7 +24,7 @@ const mockCars = [
     id: "2",
     merek: "Hyundai",
     model: "IONIQ 5",
-    harga: 750000000,
+    harga: 750,
     baterai: 72.6,
     tenaga: 225,
     jarak: 384,
@@ -34,7 +34,7 @@ const mockCars = [
     id: "3",
     merek: "BMW",
     model: "iX3",
-    harga: 950000000,
+    harga: 950,
     baterai: 74,
     tenaga: 286,
     jarak: 460,
@@ -60,13 +60,6 @@ export default function AdminDashboard() {
     router.push("/admin/login")
   }
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-      minimumFractionDigits: 0,
-    }).format(price)
-  }
 
   if (!isAuthenticated) {
     return <div>Loading...</div>
@@ -79,12 +72,8 @@ export default function AdminDashboard() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <div className="bg-gradient-to-r from-orange-400 to-red-400 rounded-lg p-2">
-                <Car className="h-6 w-6 text-white" />
-              </div>
               <div>
-                <h1 className="text-xl font-bold">Admin Dashboard</h1>
-                <p className="text-sm text-gray-600">Welcome back, Admin</p>
+                <h1 className="text-xl font-bold">Dashboard Admin</h1>
               </div>
             </div>
             <Button variant="outline" onClick={handleLogout}>
@@ -102,8 +91,7 @@ export default function AdminDashboard() {
             <div className="flex items-center justify-between">
               <CardTitle>Daftar Mobil Listrik</CardTitle>
               <Link href="/admin/cars/add">
-                <Button className="bg-gradient-to-r from-orange-400 to-red-400 hover:from-orange-500 hover:to-red-500">
-                  <Plus className="mr-2 h-4 w-4" />
+                <Button className="bg-[#F27E68]">
                   Tambah Mobil
                 </Button>
               </Link>
@@ -116,7 +104,7 @@ export default function AdminDashboard() {
                   <TableHead>ID</TableHead>
                   <TableHead>Merek</TableHead>
                   <TableHead>Model</TableHead>
-                  <TableHead>Harga</TableHead>
+                  <TableHead>Harga (Juta)</TableHead>
                   <TableHead>Baterai (kWh)</TableHead>
                   <TableHead>Tenaga (HP)</TableHead>
                   <TableHead>Jarak (km)</TableHead>
@@ -130,7 +118,7 @@ export default function AdminDashboard() {
                     <TableCell>{car.id}</TableCell>
                     <TableCell>{car.merek}</TableCell>
                     <TableCell className="font-medium">{car.model}</TableCell>
-                    <TableCell>{formatPrice(car.harga)}</TableCell>
+                    <TableCell>{car.harga}</TableCell>
                     <TableCell>{car.baterai}</TableCell>
                     <TableCell>{car.tenaga}</TableCell>
                     <TableCell>{car.jarak}</TableCell>

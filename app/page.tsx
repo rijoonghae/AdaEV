@@ -21,7 +21,7 @@ export default function HomePage() {
             <Link href="/recommendation">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-orange-400 to-red-400 hover:from-orange-500 hover:to-red-500"
+                className="bg-[#F27E68]"
               >
                 <Search className="mr-2 h-5 w-5" />
                 Cari Rekomendasi
@@ -29,7 +29,6 @@ export default function HomePage() {
             </Link>
             <Link href="/cars">
               <Button size="lg" variant="outline" className="border-orange-400 text-orange-600 hover:bg-orange-50">
-                <List className="mr-2 h-5 w-5" />
                 Lihat Semua Mobil
               </Button>
             </Link>

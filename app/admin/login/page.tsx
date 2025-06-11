@@ -35,11 +35,8 @@ export default function AdminLoginPage() {
       <div className="container mx-auto px-4 max-w-md">
         <Card>
           <CardHeader className="text-center">
-            <Link href="/">
               <img src="/ADA-EV.png" alt="ADA-EV Logo" className="h-12 w-auto p-1 mx-auto" />
-            </Link>
-            <CardTitle className="text-2xl">Admin Login</CardTitle>
-            <p className="text-gray-600">Masuk ke dashboard admin</p>
+            <CardTitle className="text-2xl">Login Admin</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -79,7 +76,7 @@ export default function AdminLoginPage() {
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-orange-400 to-red-400 hover:from-orange-500 hover:to-red-500"
+                className="w-full bg-[#F27E68]"
               >
                 Login
               </Button>

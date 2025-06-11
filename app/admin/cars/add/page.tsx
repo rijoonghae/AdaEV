@@ -19,7 +19,7 @@ export default function AddCarPage() {
     baterai: "",
     tenaga: "",
     jarak: "",
-    kecepatanMaks: "",
+    kecepatan_maks: "",
     image: "",
   })
   const router = useRouter()
@@ -59,7 +59,7 @@ export default function AddCarPage() {
                   <Label htmlFor="merek">Merek</Label>
                   <Input
                     id="merek"
-                    placeholder="Tesla, BMW, Hyundai, dll"
+                    placeholder="Hyundai"
                     value={formData.merek}
                     onChange={(e) => handleInputChange("merek", e.target.value)}
                     required
@@ -69,7 +69,7 @@ export default function AddCarPage() {
                   <Label htmlFor="model">Model</Label>
                   <Input
                     id="model"
-                    placeholder="Model 3, IONIQ 5, dll"
+                    placeholder="IONIQ 5"
                     value={formData.model}
                     onChange={(e) => handleInputChange("model", e.target.value)}
                     required
@@ -78,11 +78,11 @@ export default function AddCarPage() {
               </div>
 
               <div>
-                <Label htmlFor="harga">Harga (Rp)</Label>
+                <Label htmlFor="harga">Harga (Juta)</Label>
                 <Input
                   id="harga"
                   type="number"
-                  placeholder="800000000"
+                  placeholder="800"
                   value={formData.harga}
                   onChange={(e) => handleInputChange("harga", e.target.value)}
                   required
@@ -128,13 +128,13 @@ export default function AddCarPage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="kecepatanMaks">Kecepatan Maksimal (km/h)</Label>
+                  <Label htmlFor="kecepatan_maks">Kecepatan Maksimal (km/h)</Label>
                   <Input
-                    id="kecepatanMaks"
+                    id="kecepatan_maks"
                     type="number"
                     placeholder="225"
-                    value={formData.kecepatanMaks}
-                    onChange={(e) => handleInputChange("kecepatanMaks", e.target.value)}
+                    value={formData.kecepatan_maks}
+                    onChange={(e) => handleInputChange("kecepatan_maks", e.target.value)}
                     required
                   />
                 </div>
@@ -153,9 +153,8 @@ export default function AddCarPage() {
               <div className="flex gap-4">
                 <Button
                   type="submit"
-                  className="flex-1 bg-gradient-to-r from-orange-400 to-red-400 hover:from-orange-500 hover:to-red-500"
+                  className="flex-1 bg-[#F27E68]"
                 >
-                  <Save className="mr-2 h-4 w-4" />
                   Simpan Mobil
                 </Button>
                 <Link href="/admin/dashboard" className="flex-1">
