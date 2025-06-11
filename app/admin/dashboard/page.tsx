@@ -96,51 +96,6 @@ export default function AdminDashboard() {
       </header>
 
       <div className="container mx-auto px-4 py-8">
-        {/* Stats Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600">Total Mobil</p>
-                  <p className="text-3xl font-bold">{mockCars.length}</p>
-                </div>
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <Car className="h-6 w-6 text-blue-600" />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600">Merek Tersedia</p>
-                  <p className="text-3xl font-bold">3</p>
-                </div>
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <Database className="h-6 w-6 text-green-600" />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600">Pengunjung Hari Ini</p>
-                  <p className="text-3xl font-bold">127</p>
-                </div>
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                  <Users className="h-6 w-6 text-purple-600" />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
         {/* Car Management */}
         <Card>
           <CardHeader>
@@ -162,10 +117,10 @@ export default function AdminDashboard() {
                   <TableHead>Merek</TableHead>
                   <TableHead>Model</TableHead>
                   <TableHead>Harga</TableHead>
-                  <TableHead>Baterai</TableHead>
-                  <TableHead>Tenaga</TableHead>
-                  <TableHead>Jarak</TableHead>
-                  <TableHead>Kecepatan Maks</TableHead>
+                  <TableHead>Baterai (kWh)</TableHead>
+                  <TableHead>Tenaga (HP)</TableHead>
+                  <TableHead>Jarak (km)</TableHead>
+                  <TableHead>Kecepatan Maks (km/h)</TableHead>
                   <TableHead>Aksi</TableHead>
                 </TableRow>
               </TableHeader>
@@ -173,15 +128,13 @@ export default function AdminDashboard() {
                 {mockCars.map((car) => (
                   <TableRow key={car.id}>
                     <TableCell>{car.id}</TableCell>
-                    <TableCell>
-                      <Badge variant="secondary">{car.merek}</Badge>
-                    </TableCell>
+                    <TableCell>{car.merek}</TableCell>
                     <TableCell className="font-medium">{car.model}</TableCell>
                     <TableCell>{formatPrice(car.harga)}</TableCell>
-                    <TableCell>{car.baterai} kWh</TableCell>
-                    <TableCell>{car.tenaga} HP</TableCell>
-                    <TableCell>{car.jarak} km</TableCell>
-                    <TableCell>{car.kecepatanMaks} km/h</TableCell>
+                    <TableCell>{car.baterai}</TableCell>
+                    <TableCell>{car.tenaga}</TableCell>
+                    <TableCell>{car.jarak}</TableCell>
+                    <TableCell>{car.kecepatanMaks}</TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">
                         <Link href={`/admin/cars/edit/${car.id}`}>
