@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Car, Plus, Edit, Trash2, LogOut, Users, Database } from "lucide-react"
+import { Car, Plus, Edit, Trash2, Users, Database } from "lucide-react"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 const mockCars = [
@@ -18,7 +18,7 @@ const mockCars = [
     baterai: 75,
     tenaga: 283,
     jarak: 448,
-    kecepatanMaks: 225,
+    kecepatan_maks: 225,
   },
   {
     id: "2",
@@ -28,7 +28,7 @@ const mockCars = [
     baterai: 72.6,
     tenaga: 225,
     jarak: 384,
-    kecepatanMaks: 185,
+    kecepatan_maks: 185,
   },
   {
     id: "3",
@@ -38,7 +38,7 @@ const mockCars = [
     baterai: 74,
     tenaga: 286,
     jarak: 460,
-    kecepatanMaks: 180,
+    kecepatan_maks: 180,
   },
 ]
 
@@ -77,7 +77,6 @@ export default function AdminDashboard() {
               </div>
             </div>
             <Button variant="outline" onClick={handleLogout}>
-              <LogOut className="mr-2 h-4 w-4" />
               Logout
             </Button>
           </div>
@@ -122,7 +121,7 @@ export default function AdminDashboard() {
                     <TableCell>{car.baterai}</TableCell>
                     <TableCell>{car.tenaga}</TableCell>
                     <TableCell>{car.jarak}</TableCell>
-                    <TableCell>{car.kecepatanMaks}</TableCell>
+                    <TableCell>{car.kecepatan_maks}</TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">
                         <Link href={`/admin/cars/edit/${car.id}`}>

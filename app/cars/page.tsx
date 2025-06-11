@@ -12,7 +12,7 @@ const mockCars = [
     baterai: 75,
     tenaga: 283,
     jarak: 448,
-    kecepatanMaks: 225,
+    kecepatan_maks: 225,
     image: "/placeholder.svg?height=200&width=300",
   },
   {
@@ -23,7 +23,7 @@ const mockCars = [
     baterai: 72.6,
     tenaga: 225,
     jarak: 384,
-    kecepatanMaks: 185,
+    kecepatan_maks: 185,
     image: "/placeholder.svg?height=200&width=300",
   },
   {
@@ -34,7 +34,7 @@ const mockCars = [
     baterai: 74,
     tenaga: 286,
     jarak: 460,
-    kecepatanMaks: 180,
+    kecepatan_maks: 180,
     image: "/placeholder.svg?height=200&width=300",
   },
   {
@@ -45,18 +45,18 @@ const mockCars = [
     baterai: 40,
     tenaga: 150,
     jarak: 270,
-    kecepatanMaks: 144,
+    kecepatan_maks: 144,
     image: "/placeholder.svg?height=200&width=300",
   },
 ]
 
 export default function CarsPage() {
-  const formatPrice = (price: number) => {
+  const formatHarga = (harga: number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
       minimumFractionDigits: 0,
-    }).format(price)
+    }).format(harga)
   }
 
   return (
@@ -85,7 +85,7 @@ export default function CarsPage() {
                   <Badge variant="secondary">{car.merek}</Badge>
                 </div>
 
-                <div className="text-2xl font-bold text-orange-600 mb-4">{formatPrice(car.harga)}</div>
+                <div className="text-2xl font-bold text-orange-600 mb-4">{formatHarga(car.harga)}</div>
 
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div className="flex items-center gap-2">
@@ -102,7 +102,7 @@ export default function CarsPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Gauge className="h-4 w-4 text-red-500" />
-                    <span>{car.kecepatanMaks} km/h</span>
+                    <span>{car.kecepatan_maks} km/h</span>
                   </div>
                 </div>
               </CardContent>

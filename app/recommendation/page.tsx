@@ -20,7 +20,7 @@ const mockCars = [
     baterai: 75,
     tenaga: 283,
     jarak: 448,
-    kecepatanMaks: 225,
+    kecepatan_maks: 225,
     image: "/placeholder.svg?height=200&width=300",
   },
   {
@@ -31,7 +31,7 @@ const mockCars = [
     baterai: 72.6,
     tenaga: 225,
     jarak: 384,
-    kecepatanMaks: 185,
+    kecepatan_maks: 185,
     image: "/placeholder.svg?height=200&width=300",
   },
   {
@@ -42,7 +42,7 @@ const mockCars = [
     baterai: 40,
     tenaga: 150,
     jarak: 270,
-    kecepatanMaks: 144,
+    kecepatan_maks: 144,
     image: "/placeholder.svg?height=200&width=300",
   },
 ]
@@ -51,13 +51,13 @@ export default function RecommendationPage() {
   const [showResults, setShowResults] = useState(false)
   const [formData, setFormData] = useState({
     harga: "",
-    battery: "",
-    power: "",
-    distance: "",
-    max_speed: "",
+    baterai: "",
+    tenaga: "",
+    jarak: "",
+    kecepatan_maks: "",
   })
 
-  const formatPrice = (harga: number) => {
+  const formatharga = (harga: number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
@@ -105,7 +105,7 @@ export default function RecommendationPage() {
                     <Badge variant="secondary">{car.merek}</Badge>
                   </div>
 
-                  <div className="text-2xl font-bold text-orange-600 mb-4">{formatPrice(car.harga)}</div>
+                  <div className="text-2xl font-bold text-orange-600 mb-4">{formatharga(car.harga)}</div>
 
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div className="flex items-center gap-2">
@@ -122,7 +122,7 @@ export default function RecommendationPage() {
                     </div>
                     <div className="flex items-center gap-2">
                       <Gauge className="h-4 w-4 text-red-500" />
-                      <span>{car.kecepatanMaks} km/h</span>
+                      <span>{car.kecepatan_maks} km/h</span>
                     </div>
                   </div>
                 </CardContent>
@@ -169,10 +169,10 @@ export default function RecommendationPage() {
                   </Select>
                 </div>
                 <div>
-                  <Label htmlFor="battery">Kapasitas Baterai</Label>
+                  <Label htmlFor="baterai">Kapasitas Baterai</Label>
                   <Select
-                    value={formData.battery}
-                    onValueChange={(value) => handleInputChange("battery", value)}
+                    value={formData.baterai}
+                    onValueChange={(value) => handleInputChange("baterai", value)}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Pilih kategori baterai" />
@@ -188,10 +188,10 @@ export default function RecommendationPage() {
 
               <div className="grid md:grid-cols-3 gap-4">
                 <div>
-                  <Label htmlFor="power">Tenaga</Label>
+                  <Label htmlFor="tenaga">Tenaga</Label>
                   <Select
-                    value={formData.power}
-                    onValueChange={(value) => handleInputChange("power", value)}
+                    value={formData.tenaga}
+                    onValueChange={(value) => handleInputChange("tenaga", value)}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Pilih kategori tenaga" />
@@ -204,10 +204,10 @@ export default function RecommendationPage() {
                   </Select>
                 </div>
                 <div>
-                  <Label htmlFor="distance">Jarak Tempuh</Label>
+                  <Label htmlFor="jarak">Jarak Tempuh</Label>
                   <Select
-                    value={formData.distance}
-                    onValueChange={(value) => handleInputChange("distance", value)}
+                    value={formData.jarak}
+                    onValueChange={(value) => handleInputChange("jarak", value)}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Pilih kategori jarak" />
@@ -220,10 +220,10 @@ export default function RecommendationPage() {
                   </Select>
                 </div>
                 <div>
-                  <Label htmlFor="max_speed">Kecepatan Maksimum</Label>
+                  <Label htmlFor="kecepatan_maks">Kecepatan Maksimum</Label>
                   <Select
-                    value={formData.max_speed}
-                    onValueChange={(value) => handleInputChange("max_speed", value)}
+                    value={formData.kecepatan_maks}
+                    onValueChange={(value) => handleInputChange("kecepatan_maks", value)}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Pilih kategori kecepatan" />
