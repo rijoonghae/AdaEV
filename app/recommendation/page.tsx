@@ -21,7 +21,7 @@ const mockCars = [
     tenaga: 283,
     jarak: 448,
     kecepatan_maks: 225,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/dummy_image.png?height=200&width=300",
   },
   {
     id: "2",
@@ -32,7 +32,7 @@ const mockCars = [
     tenaga: 225,
     jarak: 384,
     kecepatan_maks: 185,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/dummy_image.png?height=200&width=300",
   },
   {
     id: "4",
@@ -43,7 +43,7 @@ const mockCars = [
     tenaga: 150,
     jarak: 270,
     kecepatan_maks: 144,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/dummy_image.png?height=200&width=300",
   },
 ]
 
@@ -91,7 +91,7 @@ export default function RecommendationPage() {
               <Card key={car.id} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="p-0 relative">
                   <img
-                    src={car.image || "/placeholder.svg"}
+                    src={car.image || "/dummy_image.png"}
                     alt={`${car.merek} ${car.model}`}
                     className="w-full h-48 object-cover rounded-t-lg"
                   />

@@ -8,45 +8,45 @@ const mockCars = [
     id: "1",
     merek: "Tesla",
     model: "Model 3",
-    harga: 800000000,
+    harga: 800,
     baterai: 75,
     tenaga: 283,
     jarak: 448,
     kecepatan_maks: 225,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/dummy_image.png?height=200&width=300",
   },
   {
     id: "2",
     merek: "Hyundai",
     model: "IONIQ 5",
-    harga: 750000000,
+    harga: 750,
     baterai: 72.6,
     tenaga: 225,
     jarak: 384,
     kecepatan_maks: 185,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/dummy_image.png?height=200&width=300",
   },
   {
     id: "3",
     merek: "BMW",
     model: "iX3",
-    harga: 950000000,
+    harga: 950,
     baterai: 74,
     tenaga: 286,
     jarak: 460,
     kecepatan_maks: 180,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/dummy_image.png?height=200&width=300",
   },
   {
     id: "4",
     merek: "Nissan",
     model: "Leaf",
-    harga: 600000000,
+    harga: 600,
     baterai: 40,
     tenaga: 150,
     jarak: 270,
     kecepatan_maks: 144,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/dummy_image.png?height=300&width=300",
   },
 ]
 
@@ -72,7 +72,7 @@ export default function CarsPage() {
             <Card key={car.id} className="hover:shadow-lg transition-shadow">
               <CardHeader className="p-0">
                 <img
-                  src={car.image || "/placeholder.svg"}
+                  src={car.image || "/dummy_image.png"}
                   alt={`${car.merek} ${car.model}`}
                   className="w-full h-48 object-cover rounded-t-lg"
                 />
@@ -85,7 +85,7 @@ export default function CarsPage() {
                   <Badge variant="secondary">{car.merek}</Badge>
                 </div>
 
-                <div className="text-2xl font-bold text-orange-600 mb-4">{formatHarga(car.harga)}</div>
+                <div className="text-2xl font-bold text-orange-600 mb-4">{formatHarga(car.harga)} Juta</div>
 
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div className="flex items-center gap-2">
